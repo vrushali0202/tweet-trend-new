@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('build code') {
             steps {
-                withEnv("/opt/apache-maven-3.9.8/bin:$PATH") {
+                withEnv(["/opt/apache-maven-3.9.8/bin:$PATH"]) {
                     sh 'mvn clean deploy'
                 }
             }
