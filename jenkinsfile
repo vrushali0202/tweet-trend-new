@@ -1,0 +1,16 @@
+pipeline {
+    agent {
+        node {
+            label 'maven'
+        }
+    }
+
+    stages {
+        stage("build"){
+            steps {
+                git branch: 'main', url: 'https://github.com/vrushali0202/tweet-trend-new.git'
+            }
+        }
+    }
+}
+
