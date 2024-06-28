@@ -6,7 +6,11 @@ pipeline {
     }
 
    environment {
+<<<<<<< HEAD
        PATH = "/opt/apache-maven-3.9.8/bin:${env.PATH}"
+=======
+       PATH = "/opt/apache-maven-3.9.8/bin:$PATH"
+>>>>>>> 6691f3ce83a3ad34261c1c0519e0117b1f060092
    }
     stages {
         stage('build code') {
