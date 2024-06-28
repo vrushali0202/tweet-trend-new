@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('build code') {
             steps {
-                sh 'mvn clean deploy'
+                sh 'mvn clen deploy'
             }
         }
     }
