@@ -16,11 +16,11 @@ pipeline {
             }
         }
            
-        // stage('build code') {
-        //     steps {
-        //        sh 'mvn clean deploy'
-        //     }
-        // }
+        stage('build code') {
+            steps {
+               sh 'mvn clean deploy'
+            }
+        }
 
         stage('SonarQube analysis') {
             environment{
