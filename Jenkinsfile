@@ -10,17 +10,27 @@ pipeline {
     }
 
     stages {
-        // stage('clone code') {
-        //     steps {
-        //        git branch: 'main', url: 'https://github.com/vrushali0202/tweet-trend-new.git'
-        //     }
-        // }
-           
-        stage('build code') {
+        stage('clone code') {
             steps {
-               sh 'mvn clean deploy'
+               git branch: 'main', url: 'https://github.com/vrushali0202/tweet-trend-new.git'
             }
         }
            
+        // stage('build code') {
+        //     steps {
+        //        sh 'mvn clean deploy'
+        //     }
+        // }
+
+        stage('SonarQube analysis') {
+            environment{
+               scannerHome = tool 'valaxy-sonar-scanner';
+            }
+            steps{
+                withSonarQubeEnv('valaxy-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+                   sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }        
     }
 }
